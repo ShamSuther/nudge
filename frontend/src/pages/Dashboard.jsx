@@ -41,12 +41,21 @@ const Dashboard = () => {
     fetchTasks();
   }, []);
 
+  if (tasks.length > 0) {
+    return (
+      <div className="dashboard">
+        <h2>Intern Tasks</h2>
+        {tasks.map((task) => (
+          <TaskCard key={task._id} task={task} onStatusChange={markComplete} />
+        ))}
+      </div>
+    );
+  }
+  
   return (
     <div className="dashboard">
       <h2>Intern Tasks</h2>
-      {tasks.map((task) => (
-        <TaskCard key={task._id} task={task} onStatusChange={markComplete} />
-      ))}
+      <p>No tasks found!</p>
     </div>
   );
 };

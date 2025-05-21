@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const taskRoutes = require("./routes/taskRoutes");
+require("./cron/taskScheduler");
 
 const corsOptions = {
     origin: "http://localhost:5173",
